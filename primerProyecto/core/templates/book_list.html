@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+<h1> This is the list book from library view</h1>
+
+<table class="table">
+    {% if context %}
+    <thead>
+        <tr>
+            <th>Isbn</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for b in context %}
+        <tr>
+            <td>{{ b.isbn }}</td>
+            <td>{{ b.title }}</td>
+            <td>{{ b.year }}</td>
+
+
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h3>There are no books</h3>
+        {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}
+```

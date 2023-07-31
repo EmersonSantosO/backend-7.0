@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+{% if context %}
+
+<h2 class="subtitle">{{context}}</h2>
+<td>
+    <form action="{% url 'book_deleted' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="isbn" value="{{ b.isbn }}" hidden>
+        <button type="btn btn-danger"><i class="bi bi-trash"></i></button>
+    </form>
+</td>
+
+{% endif %}
+
+{% endblock %}
